@@ -7,8 +7,7 @@ export const fetchAuth = createAsyncThunk('auth/fechAuth', async (params) => {
 })
 
 export const fetchRegister = createAsyncThunk('auth/fechRegister', async (params) => {
-    const { data } = await axios.post('/auth/register', params);
-    return data;
+    return await axios.post('/auth/register', params)
 })
 
 const initialState = {

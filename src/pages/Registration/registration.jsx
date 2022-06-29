@@ -33,17 +33,21 @@ export const Registration = () => {
 
     const onSubmit = async (values) => {
         console.log('tap')
+
         const data = await dispatch(fetchRegister(values))
+        debugger
         if (!data.payload) {
+            //console.log(data)
             return alert('Не удалось зарегистрироваться!')
         }
         if ('token' in data.payload) {
             window.localStorage.setItem('token', data.payload.token)
             reset()
         }
+       
     }
 
-    if (isAuth) {
+    if (isAuth){
         return <Navigate to="/" />;
     }
 
@@ -75,7 +79,7 @@ export const Registration = () => {
 
                     <div className={style.register__inputSection}>
                         <label className={style.register__lable} >Введите пароль</label>
-                        <input className={style.register__input}  type="password"
+                        <input className={style.register__input} type="password"
                             {...register('password', {
                                 required: "Поле обязательно к заполнению!",
                                 minLength: {
@@ -105,7 +109,7 @@ export const Registration = () => {
                         />
                         <div className={style.register__error}>{errors?.passwordConfirm && <p>{errors?.passwordConfirm?.message || 'Error'}</p>}</div>
                     </div>
-                    <input type="submit"  value="Отправить" className={style.register__submit} disabled={!isValid}/>
+                    <input type="submit" value="Отправить" className={style.register__submit} disabled={!isValid} />
                 </div>
             </div>
         </form>
