@@ -35,6 +35,125 @@ export const Registration = () => {
     }
   };
 
+//   return (
+//     <>
+//       {isAuth !== null ? (
+//         !isAuth ? (
+//           <>
+//             <form onSubmit={handleSubmit(onSubmit)}>
+//               <div className={style.register}>
+//                 <div className={style.register__container}>
+//                   <h1>Регистарция!</h1>
+
+//                   <div className={style.register__inputSection}>
+//                     <label className={style.register__lable} htmlFor="email">
+//                       Укажите вашу почту
+//                     </label>
+//                     <input
+//                       className={style.register__input}
+//                       placeholder="email"
+//                       {...register("email", {
+//                         required: "Поле обязательно к заполнению!",
+//                         pattern: {
+//                           value:
+//                             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+//                           message: "Данные введенны не коректно!",
+//                         },
+//                       })}
+//                     />
+//                   </div>
+//                   <div className={style.register__error}>
+//                     {errors?.email?.message}
+//                   </div>
+
+
+//                   <div className={style.register__inputSection}>
+//                     <label className={style.register__lable} htmlFor="fullName">
+//                       Введите ваше имя
+//                     </label>
+//                     <input
+//                       className={style.register__input}
+//                       placeholder="Имя"
+//                       {...register("firstName", {
+//                         required: "Поле обязательно к заполнению!",
+//                       })}
+//                     />
+//                   </div>
+//                   <div className={style.register__error}>
+//                     {errors?.firstName && (
+//                       <p>{errors?.firstName?.message || "Error"}</p>
+//                     )}
+//                   </div>
+
+//                   <div className={style.register__inputSection}>
+//                     <label className={style.register__lable}>
+//                       Введите фамилию
+//                     </label>
+//                     <input
+//                       className={style.register__input}
+//                       type="text"
+//                       placeholder="Фамилия"
+//                       {...register("lastName", {
+//                         required: "Поле обязательно к заполнению!",
+//                       })}
+//                     />
+//                   </div>
+//                   <div className={style.register__error}>
+//                     {errors?.lastname && (
+//                       <p>{errors?.lastname?.message || "Error"}</p>
+//                     )}
+//                   </div>
+
+//                   <div className={style.register__inputSection}>
+//                     <label className={style.register__lable}>
+//                       Введите пароль
+//                     </label>
+//                     <input
+//                       className={style.register__input}
+//                       type="password"
+//                       placeholder="Пароль"
+//                       {...register("password", {
+//                         required: "Поле обязательно к заполнению!",
+//                       })}
+//                     />
+//                   </div>
+//                   <div className={style.register__error}>
+//                     {errors?.password && (
+//                       <p>{errors?.password?.message || "Error"}</p>
+//                     )}
+//                   </div>
+
+//                   <input
+//                     type="submit"
+//                     value="Отправить"
+//                     className={style.register__submit}
+//                     // disabled={!isValid}
+//                   />
+//                 </div>
+//               </div>
+//             </form>
+//             <ToastContainer
+//               position="bottom-right"
+//               autoClose={5000}
+//               hideProgressBar={false}
+//               newestOnTop={false}
+//               closeOnClick
+//               rtl={false}
+//               pauseOnFocusLoss
+//               draggable
+//               pauseOnHover
+//             />
+//           </>
+//         ) : (
+//           <Navigate to="/" />
+//         )
+//       ) : (
+//         <></>
+//       )}
+//     </>
+//   );
+// };
+
   return (
     <>
       {isAuth !== null ? (
@@ -164,3 +283,4 @@ export const Registration = () => {
     </>
   );
 };
+

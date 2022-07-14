@@ -18,11 +18,12 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,600;1,300;1,400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,600;1,300;1,400&family=Oswald:wght@400;500;600&display=swap');
 .wrapper {
     overflow: hidden;
 	min-height: 100%;
 }
+
 .page {
     font-family: Lato;
 	position: absolute;
@@ -33,14 +34,18 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 	display: flex;
 	flex-direction: column;
     font-family: 'Bebas Neue', cursive;
-    background-color: rgb(254, 240, 255);
+   
 }
 .main {
     flex: 1 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
+    background-color: white;
+    background-color: rgba(246, 198, 250, 0.293);
+    padding-bottom: 15px;
 }
 .footer {
     flex: 0 0 auto;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.897);
 }

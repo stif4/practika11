@@ -1,0 +1,28 @@
+.page_item {
+  height: 20px;
+  a {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(213, 134, 255, 0.423);
+    border-radius: 5px;
+    padding: 0px 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  a:hover {
+    background-color: rgba(213, 134, 255, 0.601);
+    padding: 0px 7px;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.pagination{
+    margin-top: 20px;
+    display: flex;
+    li{
+      margin-right: 3px;
+      a{
+        font-size: 18px;
+      }
+    }
+  }

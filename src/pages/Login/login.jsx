@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { fetchAuth } from "../../store/slices/authSlice";
+import { fetchAuth, fetchAuthCheck } from "../../store/slices/authSlice";
 import style from "../Registration/registration.module.scss";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,10 +15,6 @@ const Login = () => {
     formState: {errors, isValid},
   } = useForm({
     mode: "onBlur",
-    defaultValues: {
-        email: "vanva44@gmail.com",
-        password: "123456"
-      }
   });
 
   const validateEmail = (value) => {
@@ -36,7 +32,7 @@ const Login = () => {
   const onSubmit = async (values) => {
     console.log("tap");
     const data = await dispatch(fetchAuth(values));
-    console.log(data);
+    dispatch(fetchAuthCheck())
     if (data.error) {
       //return alert("Введенные данные не коректны!");
       toast("Введенные данные не коректны!")

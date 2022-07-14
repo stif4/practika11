@@ -82,7 +82,7 @@
         cursor: pointer;
         border-radius: 5px;
         font-size: 18px;
-        background-color: rgb(208, 125, 252);
+        background-color: rgba(212, 147, 247, 0.834);
         transition: all 0.3s ease-in-out;
         padding: 8px;
         border: 2px solid rgba(144, 70, 183, 0.568);
@@ -92,6 +92,7 @@
         box-shadow: 4px 7px 12px 0px rgba(34, 60, 80, 0.2);
         transition: all 0.3s ease-in-out;
         width: 200px;
+        margin-right: 5px;
     }
     &__submit:hover{
         border: 3px solid rgba(144, 70, 183, 0.568);

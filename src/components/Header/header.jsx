@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import style from "./header.module.scss";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Modal from "../moduleWindow/window";
 import Login from "../../pages/Login/login";
-
+import test from "../../public/icon/user.png";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchLogout, toggleItWasAuthorised } from "../../store/slices/authSlice";
+import {
+  fetchLogout,
+  toggleItWasAuthorised,
+} from "../../store/slices/authSlice";
 import { Confirm } from "../../pages/Confirm/confirm";
+import { redirectF } from "../../store/slices/postSlice";
 
 export const Header = () => {
+
   const [modalActive, setModalActive] = useState(false);
   const [modalActiveConfirm, setModalActiveConfirm] = useState(false);
-
+  const redirect1 = useSelector((state)=>state.post.redirect)
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.auth.isAuth);
 
@@ -30,10 +35,16 @@ export const Header = () => {
     }
   };
 
+  const redirect =()=>{
+    console.log(1111)
+    dispatch(redirectF(true))
+  }
+  console.log(redirect1)
   return (
+    <>
     <div className={style.header}>
       <div className={style.header__container}>
-        <div className={style.logo}>СобираемБаБки.ru (-_-)</div>
+        <div className={style.logo} onClick={redirect}>СобираемБаБки.ru (-_-)</div>
         {isAuth !== null ? (
           !isAuth ? (
             <>
@@ -50,10 +61,7 @@ export const Header = () => {
                   </div>
                 </a>
               </div>
-              <Modal
-                active={modalActive}
-                setActive={setModalActive}
-              >
+              <Modal active={modalActive} setActive={setModalActive}>
                 <Login />
               </Modal>
             </>
@@ -61,11 +69,7 @@ export const Header = () => {
             <>
               <div className={style.auth}>
                 <Link to="/user">
-                  <img
-                    className={style.auth__img}
-                    src="./icon/user.png"
-                    alt="user"
-                  />
+                  <img className={style.auth__img} src={test} alt="user" />
                 </Link>
                 <a>
                   <div className={style.auth__logIn} onClick={onClickLogout}>
@@ -79,12 +83,10 @@ export const Header = () => {
           <></>
         )}
       </div>
-      <Modal
-        active={modalActiveConfirm}
-        setActive={setModalActiveConfirm}
-      >
+      <Modal active={modalActiveConfirm} setActive={setModalActiveConfirm}>
         <Confirm onDialog={areUSure} />
       </Modal>
     </div>
+  </>
   );
 };

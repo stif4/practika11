@@ -17,7 +17,6 @@ export const fetchAuth = createAsyncThunk(
       // localStorage.setItem("token", response.data.accessToken);
 
       const { response } = await $api.post("/auth/login", params);
-
       return response;
     } catch (e) {
       console.log(e.response?.data?.message);
@@ -36,6 +35,7 @@ export const fetchAuthCheck = createAsyncThunk(
       const response = await $api.get("http://localhost:3001/auth/profile", {
         withCredentials: true,
       });
+      return response
     } catch (e) {
       return rejectWithValue(e);
     }
@@ -53,6 +53,7 @@ export const fetchRegister = createAsyncThunk(
       // });
       // localStorage.setItem("token", response.data.accessToken);
       const response = await $api.post("/auth/register", params);
+      // const response = await $api.post("/auth/reg", params);
       return response;
     } catch (e) {
       console.log(e.response?.data?.message);
@@ -79,6 +80,7 @@ const initialState = {
   isAuth: null,
   isRedirect: false,
   itWasAuthorised: false,
+  role: null,
 };
 
 const authSlice = createSlice({
@@ -147,7 +149,7 @@ const authSlice = createSlice({
       state.status = "loaded";
       state.data = action.payload;
       state.isAuth = true;
-      state.isLoading = false;
+      state.isLoading = false; 
     },
     [fetchAuthCheck.rejected]: (state) => {
       state.status = "error";

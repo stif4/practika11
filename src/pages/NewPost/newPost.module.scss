@@ -1,0 +1,64 @@
+.icon__img {
+  height: 150px;
+  width: 150px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid red;
+}
+.post__discription {
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fileUploader {
+  margin: 30px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.post__title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  input {
+    width: 300px;
+    height: 35px;
+  }
+}
+.fileUploader__customButton {
+  cursor: pointer;
+  background-color: yellow;
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.fileUploader__uploadButton {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.fileUploader__preview {
+  width: 600px;
+  height: 400px;
+  border: 1px dashed gray;
+  border-radius: 12px;
+}
+
+.post__textarea {
+  width: 600px;
+  height: 200px;
+  resize: none;
+}
+
+.post__error{
+    margin-top: 6px;
+    font-size: 13px;
+    color: rgb(159, 0, 0);
+}

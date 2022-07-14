@@ -9,11 +9,13 @@ import { useEffect } from "react";
 import { fetchAuthCheck } from "./store/slices/authSlice";
 import { PrivateRoute } from "./components/privateRoute";
 import ClipLoader from "react-spinners/ClipLoader";
+import { NewPost } from "./pages/NewPost/newPost";
+import { UserPost } from "./pages/userPost/userPost";
 
 const App = () => {
   const dispathc = useDispatch();
   const isLoading = useSelector((state) => state.auth.isLoading);
-
+  
   useEffect(() => {
     dispathc(fetchAuthCheck());
   }, []);
@@ -30,6 +32,9 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/register" element={<Registration />} />
               <Route path="/user" element={<PrivateRoute component={User} />} />
+              <Route path="/newPost" element={<PrivateRoute component={NewPost} />} />
+              {/* <Route path="/newPost" element={<NewPost/>}/> */}
+              <Route path="/userPost/:id" element={<PrivateRoute component={UserPost} />}/>
             </Routes>
           )}
         </main>
@@ -38,4 +43,5 @@ const App = () => {
     </div>
   );
 };
+
 export default App;

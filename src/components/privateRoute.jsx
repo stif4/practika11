@@ -15,15 +15,4 @@ export const PrivateRoute = ({ component: Component, ...res }) => {
     dispatch(toggleRedirect(true));
     return <Navigate to="/" />;
   }
-
-  //
-  //   return isAuth !== null ? (
-  //     isAuth ? (
-  //       <Component {...res} />
-  //     ) : (
-  //       <Navigate to="/" />
-  //     )
-  //   ) : (
-  //     <></>
-  //   );
 };
